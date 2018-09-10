@@ -35,13 +35,13 @@ public class HMM1 {
 
       public static void main(String[] args) {
         String[][] data = takeInput();
-        int arow = Integer.parseInt(data[0][0]);
-        int acol = Integer.parseInt(data[0][1]);
+        int arow = Integer.parseInt(data[0][0]);   # number of rows in the A matrix
+        int acol = Integer.parseInt(data[0][1]);   # number of columns...
         int brow = Integer.parseInt(data[0][1]);
         int bcol =Integer.parseInt(data[1][1]);
         Float[][] A = new Float[arow][acol];
         Float[][] B = new Float[brow][bcol];
-        Float[][] pi = new Float[1][data[2].length-2];
+        Float[][] pi = new Float[1][data[2].length-2];   #reduce the length by two since first two element only tell size
         int[] seq = new int[data[3].length-1];
         Float[][] alpha = new Float[seq.length][pi[0].length];
         Float sum = 0f;
@@ -57,7 +57,7 @@ public class HMM1 {
           }
         }
 
-        w = 2;
+        w = 2;                            #Start with the third element since the first two only contain the size
         for(int i = 0; i < brow; i++){
           for(int j = 0; j < bcol; j++){
             B[i][j] = Float.parseFloat(data[1][w]);
